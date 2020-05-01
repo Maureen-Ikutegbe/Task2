@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Family
 {
+    
 
     public class FamilyGroup 
     {
@@ -12,10 +13,10 @@ namespace Family
         public List<Siblings> Married { get; set; }
     }
 
-    public class Siblings:Common
+    public class Siblings : Common
+
     {
         public bool CanBake { get; set; }
-       
     }
 
     public class Parents:Common
@@ -32,8 +33,9 @@ namespace Family
     {
        public string Name { get; set; }
        public string Location { get; set; }
-
         public string BirthMonth { get; set; }
+        public string Gender { get; set; }
+        public string DisplayGender { get; set; }
     }
 
  

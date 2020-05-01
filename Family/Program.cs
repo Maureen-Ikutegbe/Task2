@@ -12,7 +12,8 @@ namespace Family
                 Name = "James",
                 Location = "Nigeria",
                 BirthMonth = "January",
-                CanBake = false
+                Gender = "Male",
+                CanBake = false       
             };
 
             Siblings Sibliing2 = new Siblings()
@@ -20,6 +21,7 @@ namespace Family
                 Name = "Jane",
                 Location = "Nigeria",
                 BirthMonth = "June",
+                Gender = "Female",
                 CanBake = true
             };
 
@@ -28,6 +30,7 @@ namespace Family
                 Name = "John",
                 Location = "Nigeria",
                 BirthMonth = "April",
+                Gender = "Male",
                 CanBake = true
             };
 
@@ -36,6 +39,7 @@ namespace Family
                 Name = "Vera",
                 Location = "Nigeria",
                 BirthMonth = "February",
+                Gender = "Female",
                 CanBake = true
             };
 
@@ -53,13 +57,29 @@ namespace Family
             Console.WriteLine("My unmarried siblings are:");
             foreach (var m in RelationshipStatus.Unmarried)
             {
-                Console.WriteLine("{0}, currently living in {1}, born in the month of {2}.", m.Name, m.Location, m.BirthMonth);
+                Siblings y = ConvertGender(m); 
+                Console.WriteLine("{0}, {1} currently lives in {2}, and was born in the month of {3}.", y.Name, y.DisplayGender, y.Location, y.BirthMonth);
             }
+            Console.WriteLine("");
             Console.WriteLine("My married siblings are:");
             foreach (var m in RelationshipStatus.Married)
             {
-                Console.WriteLine("{0}, currently living in {1}, born in the month of {2}.", m.Name, m.Location, m.BirthMonth);
+                Siblings y = ConvertGender(m);
+                Console.WriteLine("{0}, {1} currently lives in {2}, and was born in the month of {3}.", y.Name, y.DisplayGender, y.Location, y.BirthMonth);
             }
+        }
+
+        private static Siblings ConvertGender (Siblings m)
+        {
+            if(m.Gender == "Female")
+            {
+                m.DisplayGender = "she";
+            }
+            else
+            {
+                m.DisplayGender = "he";
+            }
+            return m;
         }
     }
 }
